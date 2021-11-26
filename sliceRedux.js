@@ -33,7 +33,7 @@ const slice = createSlice({
   },
 });
 
-export const { actions: organizationActions } = slice;
+export const { actions: Actions } = slice;
 
 export const useSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
@@ -66,7 +66,7 @@ export const postData = (data) => async (dispatch) => {
     })
     .catch((error) => {
       if ((error?.message || '').includes('500')) {
-        Notification('Failed', 'Organization code exist', 'danger');
+        Notification('Failed', 'code exist', 'danger');
       } else {
         Notification('Failed', error?.message, 'danger');
       }
